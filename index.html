@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script>
+function currentDate(){
+	n =  new Date();
+	y = n.getFullYear();
+	m = n.getMonth() + 1;
+	d = n.getDate();
+	document.getElementById("date").innerHTML = d + "-" + m + "-" + y;
+}
+
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    "The time is " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+function disp(){
+	startTime();
+	currentDate();
+}
+</script>
+<body onload="disp(); ">
+<h1>
+</h1> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<h1 id="txt"></h1>
+<h1 id="date"></h1>
+
+</body>
+</html>
